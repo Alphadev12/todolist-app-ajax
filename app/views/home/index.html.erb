@@ -3,9 +3,9 @@
 <div class="container">
   <ul>
   <% @categories.each do  |category|%>
-  <li><%= category.title  %></li>
+  <li><%= category.title %></li>
   <div class="card">
-    <ul>
+    <ul id="<%= category.title.split(" ")[0] %>">
       <% category.tasks.each do |task|  %>
       <li>
         <%= task.title  %>

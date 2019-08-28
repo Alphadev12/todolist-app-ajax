@@ -1,0 +1,7 @@
+$(document).ready(function() {
+	var task = $("<%= j render 'task', task: @task %>").hide().fadeIn(1000);
+	$("#<%= @category.title.split(" ")[0] %>").append(task);
+});
+
+
+// document.getElementById("<%= @category.title %>").insertAdjacentHTML("beforeend", "<%= j render 'task', task: @task %>")
