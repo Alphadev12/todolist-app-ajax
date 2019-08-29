@@ -7,7 +7,7 @@
   <div class="card">
     <ul id="<%= category.title.split(" ")[0] %>">
       <% category.tasks.each do |task|  %>
-      <li class="<%= task.id %>">
+      <li class="<%= task.id %> liste">
         <%= task.title  %>
         <% unless task.deadline.nil? %>
           , to read: <%= task.deadline.strftime('%D')  %>

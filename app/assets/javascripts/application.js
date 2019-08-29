@@ -15,3 +15,15 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function() {
+	checkbox = $('.<%= @task.id %>').children('.check-box');
+	if ( checkbox.is(':checked')){
+		$('.<%= @task.id %>').css('text-decoration', 'line-through');
+	}
+	else{
+		$('.<%= @task.id %>').css('text-decoration', 'none');
+	}
+});
+
+
