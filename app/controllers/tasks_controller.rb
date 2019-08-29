@@ -35,9 +35,24 @@ before_action :authenticate_user!
 
   def update
     @task = Task.find(params[:id])
-    @task.update(task_params)
-    redirect_to tasks_path
-    flash[:notice] = "Task edited"
+
+    statusValue = params[:statusValue]
+
+    if statusValue.to_i == 0
+      @task.status = true
+    else
+      @task.status = false
+    end
+    
+    if @task.save()
+      respond_to do |format|
+        format.html{
+          redirect_to root_path
+          flash[:notice] = "Task edited"
+        }
+        format.js{}
+      end
+    end
   end
 
   def index
@@ -46,15 +61,23 @@ before_action :authenticate_user!
 
   def destroy
     @task = Task.find(params[:id])
+
     @task.destroy
-    redirect_to root_path
+    respond_to do |format|
+      format.html{
+        redirect_to root_path
+        flash[:notice] = "Task created"
+      }
+      format.js{}
+    end
+
   end
 
 
   private
 
   def task_params
-    params.permit(:title, :deadline, :description)
+    params.permit(:title, :deadline, :description, :status, :id)
   end
 
   def category_params

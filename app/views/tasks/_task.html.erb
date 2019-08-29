@@ -1,6 +1,8 @@
-<li>
+<li class="<%= task.id %>">
 	<%= task.title  %>
 	<% unless task.deadline.nil? %>
-	, to read: <%= task.deadline.strftime('%D')  %>
+	, to read: <%= task.deadline %>
 	<% end %>
+	<%= link_to "Supprimer", task_path(task.id), method: :delete, class: 'ml-auto', remote: true %>
+	<%= check_box_tag :statusValue, (task.status == true ? 1 : 0), task.status, class: "check-box", data: { remote: true, url: task_path(task.id), params: { id: task.id }.to_param, method: "put" } %>
 </li>

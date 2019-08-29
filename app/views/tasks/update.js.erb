@@ -1,0 +1,13 @@
+$(document).ready(function() {
+	checkbox = $('.<%= @task.id %>').children('.check-box');
+	if ( checkbox.val() == 1){
+		$('.<%= @task.id %>').css('text-decoration', 'none');
+		checkbox.val("0");
+	}
+	else{
+		$('.<%= @task.id %>').css('text-decoration', 'line-through');
+		checkbox.val("1");
+	}
+});
+
+
