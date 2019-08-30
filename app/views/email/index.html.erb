@@ -1,4 +1,13 @@
+<div class="text-center my-4">
+	<%= link_to "Recevoir un email", email_index_path, class: "btn btn-primary", method: :post, remote: true %>
+</div>
 <div class="row">
-	<div class="col-6">Liste des emails</div>
+	<div class="col-6">
+		<div class="email-object">
+			<% @emails.each do |email|%>
+				<div><%= email.object %></div>
+			<% end %>
+		</div>
+	</div>
 	<div class="col-6">Email sélectionné</div>
 </div>
