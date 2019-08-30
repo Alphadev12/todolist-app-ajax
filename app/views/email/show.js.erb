@@ -1,3 +1,6 @@
 var email_body = $("<%= j render 'body', email: @email %>");
 $('#email-body').text("");
 $('#email-body').append(email_body);
+
+// Marquage non lu
+$('#<%= @email.id %>').removeClass('non-lu');

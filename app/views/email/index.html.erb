@@ -5,7 +5,7 @@
 	<div class="col-6">
 		<div class="email-object">
 			<% @emails.each do |email|%>
-			<div id="<%= email.id %>">
+			<div id="<%= email.id %>" <% if email.read == false %> class="non-lu" <% end %> >
 				<%= link_to email.object, email, remote: true %>
 			</div>
 			<% end %>
