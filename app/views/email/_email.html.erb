@@ -1,1 +1,3 @@
-<div class="email-object"><%= email.object %></div>
+<div id="<%= email.id %>">
+	<%= link_to email.object, email, remote: true %>
+</div>
