@@ -1,4 +1,4 @@
-$('#email-body').remove();
+$('#email-body').text("");
 mail = $('#<%= @email.id %>').fadeOut(1000, function() {
 	$(this).remove();
 });
