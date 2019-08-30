@@ -5,9 +5,13 @@
 	<div class="col-6">
 		<div class="email-object">
 			<% @emails.each do |email|%>
-				<div><%= email.object %></div>
+			<div>
+				<%= link_to email.object, email, remote: true %>
+			</div>
 			<% end %>
 		</div>
 	</div>
-	<div class="col-6">Email sélectionné</div>
+	<div class="col-6">
+		<div id="email-body"></div>
+	</div>
 </div>
